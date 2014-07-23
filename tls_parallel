@@ -1,0 +1,15 @@
+#!/bin/bash -f
+#
+#$ -S /bin/bash
+#$ -o /netapp/home/vanben/tls_correlated/chain_parallel
+#$ -e /netapp/home/vanben/tls_correlated/chain_parallel
+#$ -cwd
+#$ -l mem_free=8G
+#$ -l arch=linux-x64
+#$ -l h_rt=24:00:00
+source /netapp/home/vanben/programs/phenix-dev-1660/phenix_env.sh
+cctbx.python tls_sequential.py pdb=2DXN_ChainAB_no_water.pdb sampling=5 resolution=4.5 sigma=1 selection=parallel
+
+#mike3 program
+
+
